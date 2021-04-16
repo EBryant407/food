@@ -2,12 +2,17 @@ import React from 'react';
 import { View, TextInput, StyleSheet } from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
 
-const SearchBar = () => {
+const SearchBar = ({ term, onTermChange }) => {
     return (
         <View style={styles.backgroundStyle}>
             <FontAwesome5 name='search' style={styles.iconStyle} />
-            <TextInput style={styles.inputStyle}
-                placeholder='search'
+            <TextInput
+                autoCapitalize='none'
+                autoCorrect={flase}
+                style={styles.inputStyle}
+                placeholder='Search'
+                value={term}
+                onChangeText={newTerm => onTermChange(newTerm)}
             />
         </View>
     )
