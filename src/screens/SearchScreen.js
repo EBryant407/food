@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import SearchBar from '../components/SearchBar';
 import useResults from '../hooks/useResults';
+import ResultsList from '../components/ResultsList';
 
 
 const SearchScreen = () => {
@@ -21,6 +22,9 @@ const SearchScreen = () => {
             <Text>
                 We have found {results.length} results
         </Text>
+        <ResultsList title='$' />
+        <ResultsList title='$$' />
+        <ResultsList title='$$$' />
         </View>
     );
 };
