@@ -1,22 +1,22 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import SearchBar from '../components/SearchBar';
 import useResults from '../hooks/useResults';
 import ResultsList from '../components/ResultsList';
 
 
-const SearchScreen = () => {
+const SearchScreen = ({ navigation }) => {
     const [term, setTerm] = useState('');
     const [searchApi, results, errorMessage] = useResults();
 
-    const filterResultsByPrice = (price) => {
+    const filterResultsByPrice = price => {
         return results.filter(result => {
             return result.price === price;
         })
     };
 
     return (
-        <View>
+        <>
             <SearchBar
                 term={term}
                 onTermChange={setTerm}
@@ -25,22 +25,30 @@ const SearchScreen = () => {
             {errorMessage ? <Text>
                 {errorMessage}
             </Text> : null}
-            <Text>
-                We have found {results.length} results
-        </Text>
-            <ResultsList
-                results={filterResultsByPrice('$')}
-                title='Quick Bite' />
-            <ResultsList
-                results={filterResultsByPrice('$$')}
-                title='Stay For a Bit' />
-            <ResultsList
-                results={filterResultsByPrice('$$$')}
-                title='Now We Are Cookin With Fire!' />
-            <ResultsList
-                results={filterResultsByPrice('$$$$')}
-                title='You Fancy Huh?' />
-        </View>
+
+            <ScrollView>
+                <ResultsList
+                    results={filterResultsByPrice('$')}
+                    title='Quick Bite' 
+                    navigation={navigation}
+                    />
+                <ResultsList
+                    results={filterResultsByPrice('$$')}
+                    title='Stay For a Bit' 
+                    navigation={navigation}
+                    />
+                <ResultsList
+                    results={filterResultsByPrice('$$$')}
+                    title='Now We Are Cookin With Fire!' 
+                    navigation={navigation}
+                    />
+                <ResultsList
+                    results={filterResultsByPrice('$$$$')}
+                    title='You Fancy Huh?' 
+                    navigation={navigation}
+                    />
+            </ScrollView>
+        </>
     );
 };
 
