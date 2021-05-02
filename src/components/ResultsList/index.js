@@ -1,24 +1,26 @@
 import React from 'react';
 import {
-    View,
-    Text,
-    StyleSheet,
     FlatList,
     TouchableOpacity
 } from 'react-native';
 import { withNavigation } from 'react-navigation';
-import ResultsDetail from './ResultsDetail';
+import ResultsDetail from '../ResultsDetail';
+import {
+    ParentContainer,
+    TitleText
+}
+    from './styles';
 
 const ResultsList = ({ title, results, navigation }) => {
-    if (!results.length) {
+    if (!results) {
         return null;
     }
 
     return (
-        <View style={styles.container}>
-            <Text style={styles.titleText}>
+        <ParentContainer>
+            <TitleText>
                 {title}
-            </Text>
+            </TitleText>
             <FlatList
                 horizontal
                 data={results}
@@ -34,21 +36,8 @@ const ResultsList = ({ title, results, navigation }) => {
                     )
                 }}
             />
-        </View>
+        </ParentContainer>
     );
 };
-
-
-const styles = StyleSheet.create({
-    titleText: {
-        fontSize: 18,
-        fontWeight: 'bold',
-        marginLeft: 15,
-        marginBottom: 5,
-    },
-    container: {
-        marginBottom: 10
-    }
-});
 
 export default withNavigation(ResultsList);
