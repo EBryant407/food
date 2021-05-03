@@ -1,10 +1,13 @@
 import React from 'react';
-import { View, TextInput, StyleSheet } from 'react-native';
+import { TextInput, StyleSheet } from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
+import {
+    ParentContainer,
+} from './styles';
 
 const SearchBar = ({ term, onTermChange, onTermSubmit }) => {
     return (
-        <View style={styles.backgroundStyle}>
+        <ParentContainer>
             <FontAwesome5 name='search' style={styles.iconStyle} />
             <TextInput
                 autoCapitalize='none'
@@ -15,20 +18,11 @@ const SearchBar = ({ term, onTermChange, onTermSubmit }) => {
                 onChangeText={onTermChange}
                 onEndEditing={onTermSubmit}
             />
-        </View>
+        </ParentContainer>
     )
 };
 
 const styles = StyleSheet.create({
-    backgroundStyle: {
-        backgroundColor: '#F0EEEE',
-        height: 50,
-        borderRadius: 5,
-        marginHorizontal: 15,
-        flexDirection: 'row',
-        marginTop: 10,
-        marginBottom: 10,
-    },
     inputStyle: {
         flex: 1,
         fontSize: 18,

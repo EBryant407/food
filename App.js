@@ -2,7 +2,7 @@ import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import SearchScreen from './src/screens/SearchScreen';
 import ResultsShowScreen from './src/screens/ResultsShowScreen';
-import index from './src/components/ResultsDetail/index';
+import ResultsDetail from './src/components/ResultsDetail';
 
 const navigator = createStackNavigator(
   {

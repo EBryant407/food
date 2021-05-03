@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react';
 import {
     View,
     Text,
-    StyleSheet,
     FlatList,
     Image
 } from 'react-native';
-import yelp from '../api/yelp';
+import yelp from '../../api/yelp';
+import {
+    ImageResult
+} from './styles';
 
 const ResultsShowScreen = ({ navigation }) => {
     const [result, setResult] = useState(null);
@@ -33,8 +35,7 @@ const ResultsShowScreen = ({ navigation }) => {
                 data={result.photos}
                 keyExtractor={(photo) => photo}
                 renderItem={({ item }) => {
-                    return <Image 
-                    style={styles.image} 
+                    return <ImageResult 
                     source={{ uri: item }} />
                 }}
             />
@@ -42,11 +43,5 @@ const ResultsShowScreen = ({ navigation }) => {
     );
 };
 
-const styles = StyleSheet.create({
-    image: {
-        height: 200,
-        width: 300
-    }
-});
 
 export default ResultsShowScreen;
