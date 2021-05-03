@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import {
     View,
-    Text,
     FlatList,
-    Image
 } from 'react-native';
 import yelp from '../../api/yelp';
 import {
-    ImageResult
+    ImageResult,
+    Name
 } from './styles';
 
 const ResultsShowScreen = ({ navigation }) => {
@@ -28,9 +27,9 @@ const ResultsShowScreen = ({ navigation }) => {
 
     return (
         <View>
-            <Text>
+            <Name>
                 {result.name}
-            </Text>
+            </Name>
             <FlatList
                 data={result.photos}
                 keyExtractor={(photo) => photo}
