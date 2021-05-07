@@ -4,6 +4,7 @@ import {
     ResultContainer,
     ResultImage,
     ResultName,
+    ReviewsText
 }
     from './styles';
 
@@ -15,10 +16,11 @@ const ResultsDetail = ({ result }) => {
             <ResultName>
                 {result.name}
             </ResultName>
-            <Text>
-                {result.rating} Stars,
-            {result.review_count} Reviews
-        </Text>
+            <ReviewsText>
+                {result.rating} Stars
+                -
+                {result.review_count} Reviews
+            </ReviewsText>
         </ResultContainer>
     );
 };

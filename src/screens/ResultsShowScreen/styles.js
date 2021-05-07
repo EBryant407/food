@@ -9,6 +9,11 @@ export const ImageResult = styled.Image`
     border-color: black;
 `;
 export const Name = styled.Text`
-    font-size: 20px;
+    font-size: 40px;
     font-weight: bold;
+    align-self: center;
+`;
+
+export const PhoneText = styled.Text`
+    font-size: 15px;
 `;

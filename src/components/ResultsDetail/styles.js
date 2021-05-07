@@ -13,4 +13,8 @@ export const ResultImage = styled.Image`
 
 export const ResultName = styled.Text`
     font-weight: bold;
+    font-style: italic;
+`;
+export const ReviewsText = styled.Text`
+    font-size: 15px;
 `;
