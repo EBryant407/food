@@ -36,11 +36,6 @@ const ResultsShowScreen = ({ navigation }) => {
             <PhoneText>
                 {result.display_phone}
             </PhoneText>
-            <TouchableOpacity>
-                <Text>
-                    {result.messaging.url}
-                </Text>
-            </TouchableOpacity>
             <FlatList
                 horizontal
                 data={result.photos}
